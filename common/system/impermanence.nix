@@ -7,6 +7,15 @@
     enable = true;
     hideMounts = true;
     directories = [ "/var/lib/nixos" ];
-    files = [ ];
+    files = [
+      {
+        file = "/etc/sops/age.key";
+        parentDirectory = {
+          user = "root";
+          group = "users";
+          mode = "0750";
+        };
+      }
+    ];
   };
 }

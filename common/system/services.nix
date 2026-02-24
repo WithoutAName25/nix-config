@@ -1,6 +1,10 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
+  services.udev = {
+    packages = [ pkgs.yubikey-personalization ];
+  };
+
   services.printing = {
     enable = true;
   };

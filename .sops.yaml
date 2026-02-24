@@ -1,0 +1,10 @@
+keys:
+  - &desktop age1ccs8jtrxd9hm7sl7dxprp82a2n5z9wgcqqp45p5cutfln0e3w4vs3sh6af
+
+creation_rules:
+  - path_reges: secrets/system\.yaml$
+    key_groups:
+      - age: [*desktop]
+  - path_reges: secrets/home\.yaml$
+    key_groups:
+      - age: [*desktop]
