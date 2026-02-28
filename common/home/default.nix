@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, configName, ... }:
 
 {
   imports = [ inputs.home-manager.nixosModules.home-manager ];
@@ -12,7 +12,7 @@
     };
 
     extraSpecialArgs = {
-      inherit inputs;
+      inherit inputs configName;
     };
   };
 }
