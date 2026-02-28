@@ -4,6 +4,7 @@
   home.persistence."/persistent" = {
     directories = [
       ".config/DankMaterialShell"
+      ".local/share/zoxide"
       "nix"
     ];
     files = [
