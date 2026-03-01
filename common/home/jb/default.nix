@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./config
     ./programs
     ./services
     ./impermanence.nix
