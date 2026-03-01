@@ -3,6 +3,7 @@
 {
   imports = [
     ./btop.nix
+    ./discord.nix
     ./dms.nix
     ./fish.nix
     ./fuzzel.nix
@@ -11,6 +12,7 @@
     ./lazygit.nix
     ./niri.nix
     ./nixvim.nix
+    ./packages.nix
     ./ssh.nix
     ./tmux.nix
     ./utils.nix

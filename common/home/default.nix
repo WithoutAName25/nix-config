@@ -3,6 +3,11 @@
 {
   imports = [ inputs.home-manager.nixosModules.home-manager ];
 
+  my.allowedUnfreePkgs = [
+    "discord"
+    "spotify"
+  ];
+
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
