@@ -61,9 +61,18 @@
 
     extraPackages = with pkgs; [
       nixfmt
+      ripgrep
     ];
 
     plugins = {
+      blink-cmp = {
+        enable = true;
+        settings = {
+          completion.documentation.auto_show = true;
+          signature.enabled = true;
+        };
+      };
+
       conform-nvim = {
         enable = true;
         settings = {
@@ -95,7 +104,6 @@
       lspconfig.enable = true;
       neo-tree.enable = true;
       tmux-navigator.enable = true;
-      blink-cmp.enable = true;
       gitsigns.enable = true;
       lualine.enable = true;
       nvim-autopairs.enable = true;
