@@ -5,6 +5,7 @@
 
   environment.systemPackages = with pkgs; [
     kdePackages.breeze
+    xwayland-satellite
   ];
 
   programs.niri = {
