@@ -22,8 +22,20 @@
         "usbhid"
       ];
       kernelModules = [ ];
-      systemd.enable = true;
-      luks.devices."nixroot".device = "/dev/disk/by-partlabel/nixroot";
+      systemd = {
+        enable = true;
+      };
+      luks.devices = {
+        "nixroot".device = "/dev/disk/by-partlabel/nixroot";
+        "nixdata" = {
+          device = "/dev/disk/by-partlabel/nixdata";
+          keyFile = "/sysroot/persistent/system/etc/secrets/nixdata.key";
+        };
+        "nixswap" = {
+          device = "/dev/disk/by-partlabel/nixswap";
+          keyFile = "/sysroot/persistent/system/etc/secrets/nixswap.key";
+        };
+      };
     };
   };
 
@@ -35,6 +47,16 @@
         "size=4G"
         "mode=755"
       ];
+      neededForBoot = true;
+    };
+
+    "/boot" = {
+      device = "/dev/disk/by-partlabel/nixboot";
+      fsType = "vfat";
+      options = [
+        "umask=0077"
+      ];
+      neededForBoot = true;
     };
 
     "/nix" = {
@@ -48,27 +70,54 @@
       neededForBoot = true;
     };
 
-    "/persistent" = {
+    "/persistent/system" = {
       device = "/dev/mapper/nixroot";
       fsType = "btrfs";
       options = [
-        "subvol=@persistent"
+        "subvol=@persistent-system"
         "compress=zstd"
         "noatime"
       ];
       neededForBoot = true;
     };
 
-    "/boot" = {
-      device = "/dev/disk/by-uuid/A541-F7CA";
-      fsType = "vfat";
+    "/persistent/cache" = {
+      device = "/dev/mapper/nixdata";
+      fsType = "btrfs";
       options = [
-        "umask=0077"
+        "subvol=@persistent-cache"
+        "compress=zstd"
+        "noatime"
       ];
+      neededForBoot = true;
+    };
+
+    "/persistent/data" = {
+      device = "/dev/mapper/nixdata";
+      fsType = "btrfs";
+      options = [
+        "subvol=@persistent-data"
+        "compress=zstd"
+        "noatime"
+      ];
+      neededForBoot = true;
+    };
+
+    "/persistent/vault" = {
+      device = "/dev/mapper/nixdata";
+      fsType = "btrfs";
+      options = [
+        "subvol=@persistent-vault"
+        "compress=zstd"
+        "noatime"
+      ];
+      neededForBoot = true;
     };
   };
 
-  swapDevices = [ ];
+  swapDevices = [
+    { device = "/dev/mapper/nixswap"; }
+  ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 
