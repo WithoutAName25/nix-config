@@ -15,8 +15,7 @@
       };
 
       colors = {
-        background = "00000044";
-        # background = "1e1e2edd";
+        background = "1e1e2e99";
         text = "cdd6f4ff";
         prompt = "bac2deff";
         placeholder = "7f849cff";
@@ -29,7 +28,7 @@
         border = "74c7ecff";
       };
       border = {
-        width = 0;
+        width = 2;
         radius = 12;
       };
     };

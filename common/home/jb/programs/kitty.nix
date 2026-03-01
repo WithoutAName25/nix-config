@@ -7,7 +7,7 @@
     themeFile = "Catppuccin-Mocha";
 
     settings = {
-      background_opacity = 0.5;
+      background_opacity = 0.75;
     };
   };
 }
