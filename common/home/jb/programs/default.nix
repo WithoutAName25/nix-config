@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./btop.nix
     ./dms.nix
     ./fish.nix
     ./fuzzel.nix
@@ -12,5 +13,6 @@
     ./ssh.nix
     ./tmux.nix
     ./zen.nix
+    ./zoxide.nix
   ];
 }
