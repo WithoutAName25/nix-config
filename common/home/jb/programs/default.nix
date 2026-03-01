@@ -13,6 +13,7 @@
     ./niri.nix
     ./nixvim.nix
     ./packages.nix
+    ./spicetify.nix
     ./ssh.nix
     ./tmux.nix
     ./utils.nix
