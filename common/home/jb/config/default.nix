@@ -1,5 +1,8 @@
 { ... }:
 
 {
-  imports = [ ./dbus.nix ];
+  imports = [
+    ./cursor.nix
+    ./dbus.nix
+  ];
 }

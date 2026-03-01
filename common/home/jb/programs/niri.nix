@@ -130,11 +130,6 @@
         always-center-single-column = [ ];
       };
 
-      cursor = {
-        xcursor-theme = "breeze_cursors";
-        xcursor-size = 24;
-      };
-
       screenshot-path = null;
       prefer-no-csd = [ ];
 
