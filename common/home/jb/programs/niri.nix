@@ -1,5 +1,6 @@
 {
   inputs,
+  pkgs,
   ...
 }:
 
@@ -181,7 +182,31 @@
         "QT_WAYLAND_DISABLE_WINDOWDECORATION" = "1";
       };
 
-      # spawn-at-startup = [ ];
+      spawn-at-startup = [
+        (
+          let
+            wallpaper = "${pkgs.nixos-artwork.wallpapers.catppuccin-mocha.gnomeFilePath}";
+            rotatedWallpaper = pkgs.runCommand "wallpaper-rotated.png" {
+              nativeBuildInputs = [ pkgs.imagemagick ];
+            } "magick ${wallpaper} -rotate 90 $out";
+          in
+          [
+            "${pkgs.swaybg}/bin/swaybg"
+            "--image"
+            "${wallpaper}"
+            "--mode"
+            "fit"
+            "--output"
+            "DP-2"
+            "--image"
+            "${rotatedWallpaper}"
+            "--output"
+            "DP-3"
+            "--image"
+            "${rotatedWallpaper}"
+          ]
+        )
+      ];
       # spawn-sh-at-startup = [ ];
 
       gestures = {
