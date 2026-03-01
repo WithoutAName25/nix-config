@@ -3,7 +3,10 @@
 {
   home.persistence."/persistent" = {
     directories = [
+      ".cache/spotify"
       ".config/DankMaterialShell"
+      ".config/discord"
+      ".config/spotify"
       ".config/zen/default"
       ".local/share/zoxide"
       "nix"

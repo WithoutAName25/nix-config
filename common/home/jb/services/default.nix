@@ -1,5 +1,8 @@
 { ... }:
 
 {
-  imports = [ ./clipse.nix ];
+  imports = [
+    ./clipse.nix
+    ./playerctld.nix
+  ];
 }
