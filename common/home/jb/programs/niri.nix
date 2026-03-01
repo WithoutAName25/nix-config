@@ -66,6 +66,7 @@
             y = 0;
           };
           mode = "1920x1080@143.855";
+          focus-at-startup = [ ];
         }
         {
           _args = [ "Iiyama North America PL2493H 1211524912189" ];
