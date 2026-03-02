@@ -5,6 +5,8 @@
     hideMounts = true;
     directories = [
       ".cache/spotify"
+      ".local/share/Steam"
+      ".steam"
     ];
     files = [
     ];
@@ -16,7 +18,9 @@
       ".config/discord"
       ".config/spotify"
       ".config/zen/default"
+      ".local/share/keyrings"
       ".local/share/zoxide"
+      ".pki/nssdb"
       "nix"
     ];
     files = [

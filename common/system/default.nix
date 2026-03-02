@@ -3,6 +3,7 @@
 {
   imports = [
     ./programs
+    ./services
     ./boot.nix
     ./impermanence.nix
     ./locale.nix
