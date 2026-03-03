@@ -17,18 +17,26 @@
     directories = [
       ".config/DankMaterialShell"
       ".config/discord"
+      ".config/Nextcloud"
       ".config/spotify"
       ".config/zen/default"
+      ".dotfiles" # old dotfiles
       ".local/share/direnv"
       {
         directory = ".local/share/keyrings";
         mode = "0700";
       }
+      ".local/share/Nextcloud"
       ".local/share/Steam-userdata"
       ".local/share/zoxide"
       ".pki/nssdb"
+      "Arduino"
+      "Documents"
       "nix"
+      "Notizen"
+      "Pictures"
       "Projects"
+      "Videos"
     ];
     files = [
       ".local/share/fish/fish_history"

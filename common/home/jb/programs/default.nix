@@ -11,6 +11,7 @@
     ./git.nix
     ./kitty.nix
     ./lazygit.nix
+    ./nextcloud-client.nix
     ./niri.nix
     ./nixvim.nix
     ./packages.nix
