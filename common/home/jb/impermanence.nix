@@ -26,6 +26,7 @@
       ".local/share/zoxide"
       ".pki/nssdb"
       "nix"
+      "Projects"
     ];
     files = [
       ".local/share/fish/fish_history"

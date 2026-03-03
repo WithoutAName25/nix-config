@@ -4,6 +4,18 @@
   programs.git = {
     enable = true;
 
+    includes = [
+      {
+        condition = "gitdir:~/Projects/Studium/";
+        contents = {
+          user = {
+            name = "Jakob Bühler";
+            email = "j_buehler22@cs.uni-kl.de";
+          };
+        };
+      }
+    ];
+
     settings = {
       user = {
         name = "WithoutAName";
