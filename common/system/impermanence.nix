@@ -7,6 +7,7 @@
     hideMounts = true;
     directories = [ "/var/lib/nixos" ];
     files = [
+      "/etc/machine-id"
       {
         file = "/etc/sops/age.key";
         parentDirectory = {

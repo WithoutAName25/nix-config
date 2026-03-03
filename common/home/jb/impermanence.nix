@@ -18,7 +18,10 @@
       ".config/discord"
       ".config/spotify"
       ".config/zen/default"
-      ".local/share/keyrings"
+      {
+        directory = ".local/share/keyrings";
+        mode = "0700";
+      }
       ".local/share/zoxide"
       ".pki/nssdb"
       "nix"
