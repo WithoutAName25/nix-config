@@ -18,6 +18,7 @@
       ".config/discord"
       ".config/spotify"
       ".config/zen/default"
+      ".local/share/direnv"
       {
         directory = ".local/share/keyrings";
         mode = "0700";

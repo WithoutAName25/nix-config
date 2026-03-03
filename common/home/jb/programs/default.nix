@@ -3,6 +3,7 @@
 {
   imports = [
     ./btop.nix
+    ./direnv.nix
     ./discord.nix
     ./dms.nix
     ./fish.nix
