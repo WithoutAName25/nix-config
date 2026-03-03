@@ -5,6 +5,7 @@
     hideMounts = true;
     directories = [
       ".cache/spotify"
+      ".cargo/registry"
       ".local/share/Steam"
       ".steam"
     ];

@@ -56,11 +56,28 @@
             };
           };
         };
+        rust_analyzer = {
+          enable = true;
+          config = {
+            settings = {
+              rust-analyzer = {
+                check = {
+                  command = "clippy";
+                  extra_args = [
+                    "-D"
+                    "warnings"
+                  ];
+                };
+              };
+            };
+          };
+        };
       };
     };
 
     extraPackages = with pkgs; [
       nixfmt
+      rustfmt
       ripgrep
     ];
 
@@ -78,6 +95,7 @@
         settings = {
           formatters_by_ft = {
             nix = [ "nixfmt" ];
+            rust = [ "rustfmt" ];
           };
           format_on_save = {
             timeout_ms = 500;
