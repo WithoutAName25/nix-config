@@ -12,6 +12,26 @@
     enable = true;
     defaultEditor = true;
 
+    diagnostic.settings = {
+      virtual_lines = false;
+      virtual_text = {
+        prefix = "●";
+      };
+      update_in_insert = true;
+      severity_sort = true;
+      underline = true;
+      signs = {
+        text.__raw = ''
+          {
+            [vim.diagnostic.severity.ERROR] = "󰅙",
+            [vim.diagnostic.severity.WARN]  = "",
+            [vim.diagnostic.severity.INFO]  = "󰋼",
+            [vim.diagnostic.severity.HINT]  = "󰌵",
+          }
+        '';
+      };
+    };
+
     opts = {
       number = true;
       relativenumber = true;
@@ -152,6 +172,12 @@
           silent = true;
           desc = "Save buffer";
         };
+      }
+      {
+        mode = "n";
+        key = "<leader>ds";
+        action.__raw = "vim.diagnostic.setloclist";
+        options.desc = "diagnostic loclist";
       }
       {
         mode = "n";
