@@ -202,6 +202,10 @@
             "${rotatedWallpaper}"
           ]
         )
+        [
+          "steam"
+          "-silent"
+        ]
       ];
       # spawn-sh-at-startup = [ ];
 
