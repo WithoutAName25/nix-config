@@ -2,9 +2,11 @@
 
 {
   imports = [
+    ./bat.nix
     ./btop.nix
     ./direnv.nix
     ./dms.nix
+    ./eza.nix
     ./fish.nix
     ./fuzzel.nix
     ./git.nix
