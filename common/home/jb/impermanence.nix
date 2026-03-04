@@ -5,7 +5,7 @@
     hideMounts = true;
     directories = [
       ".cache/spotify"
-      ".cargo/registry"
+      ".cargo"
       ".local/share/Steam"
       ".steam"
     ];
@@ -46,6 +46,7 @@
   home.persistence."/persistent/vault" = {
     hideMounts = true;
     directories = [
+      ".thunderbird"
     ];
     files = [
     ];
