@@ -44,7 +44,7 @@
       device = "none";
       fsType = "tmpfs";
       options = [
-        "size=4G"
+        "size=16G"
         "mode=755"
       ];
       neededForBoot = true;
