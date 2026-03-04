@@ -279,189 +279,145 @@
         };
 
         "Mod+H" = {
-          _props.repeat = false;
           focus-column-left = [ ];
         };
         "Mod+J" = {
-          _props.repeat = false;
           focus-window-down = [ ];
         };
         "Mod+K" = {
-          _props.repeat = false;
           focus-window-up = [ ];
         };
         "Mod+L" = {
-          _props.repeat = false;
           focus-column-right = [ ];
         };
 
         "Mod+WheelScrollRight" = {
-          _props.repeat = false;
           focus-column-right = [ ];
         };
         "Mod+WheelScrollLeft" = {
-          _props.repeat = false;
           focus-column-left = [ ];
         };
         "Mod+WheelScrollUp" = {
-          _props.repeat = false;
           focus-window-or-workspace-up = [ ];
         };
         "Mod+WheelScrollDown" = {
-          _props.repeat = false;
           focus-window-or-workspace-down = [ ];
         };
 
         "Mod+Shift+H" = {
-          _props.repeat = false;
           move-column-left = [ ];
         };
         "Mod+Shift+J" = {
-          _props.repeat = false;
           move-window-down = [ ];
         };
         "Mod+Shift+K" = {
-          _props.repeat = false;
           move-window-up = [ ];
         };
         "Mod+Shift+L" = {
-          _props.repeat = false;
           move-column-right = [ ];
         };
 
         "Mod+Shift+WheelScrollRight" = {
-          _props.repeat = false;
           move-column-right = [ ];
         };
         "Mod+Shift+WheelScrollLeft" = {
-          _props.repeat = false;
           move-column-left = [ ];
         };
         "Mod+Shift+WheelScrollUp" = {
-          _props.repeat = false;
           move-window-up-or-to-workspace-up = [ ];
         };
         "Mod+Shift+WheelScrollDown" = {
-          _props.repeat = false;
           move-window-down-or-to-workspace-down = [ ];
         };
 
         "Mod+Ctrl+H" = {
-          _props.repeat = false;
           consume-or-expel-window-left = [ ];
         };
         "Mod+Ctrl+J" = {
-          _props.repeat = false;
           consume-window-into-column = [ ];
         };
         "Mod+Ctrl+K" = {
-          _props.repeat = false;
           expel-window-from-column = [ ];
         };
         "Mod+Ctrl+L" = {
-          _props.repeat = false;
           consume-or-expel-window-right = [ ];
         };
 
         "Mod+N" = {
-          _props.repeat = false;
           focus-monitor-left = [ ];
         };
         "Mod+M" = {
-          _props.repeat = false;
           focus-workspace-down = [ ];
         };
         "Mod+Comma" = {
-          _props.repeat = false;
           focus-workspace-up = [ ];
         };
         "Mod+Period" = {
-          _props.repeat = false;
           focus-monitor-right = [ ];
         };
 
         "Mod+Shift+N" = {
-          _props.repeat = false;
           move-column-to-monitor-left = [ ];
         };
         "Mod+Shift+M" = {
-          _props.repeat = false;
           move-column-to-workspace-down = [ ];
         };
         "Mod+Shift+Comma" = {
-          _props.repeat = false;
           move-column-to-workspace-up = [ ];
         };
         "Mod+Shift+Period" = {
-          _props.repeat = false;
           move-column-to-monitor-right = [ ];
         };
 
         "Mod+Ctrl+N" = {
-          _props.repeat = false;
           move-workspace-to-monitor-left = [ ];
         };
         "Mod+Ctrl+M" = {
-          _props.repeat = false;
           move-workspace-down = [ ];
         };
         "Mod+Ctrl+Comma" = {
-          _props.repeat = false;
           move-workspace-up = [ ];
         };
         "Mod+Ctrl+Period" = {
-          _props.repeat = false;
           move-workspace-to-monitor-right = [ ];
         };
 
         "Mod+W" = {
-          _props.repeat = false;
           switch-preset-column-width = [ ];
         };
         "Mod+Shift+W" = {
-          _props.repeat = false;
           switch-preset-column-width-back = [ ];
         };
 
         "Mod+E" = {
-          _props.repeat = false;
           switch-preset-window-height = [ ];
         };
         "Mod+Shift+E" = {
-          _props.repeat = false;
           switch-preset-window-height-back = [ ];
         };
         "Mod+Ctrl+E" = {
-          _props.repeat = false;
           reset-window-height = [ ];
         };
 
         "XF86AudioRaiseVolume" = {
-          _props.repeat = false;
           spawn-sh = "wpctl set-mute @DEFAULT_AUDIO_SINK@ 0 && wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+";
         };
         "XF86AudioLowerVolume" = {
-          _props.repeat = false;
           spawn-sh = "wpctl set-mute @DEFAULT_AUDIO_SINK@ 0 && wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-";
         };
         "XF86AudioMute" = {
-          _props.repeat = false;
           spawn-sh = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
         };
         "XF86AudioMicMute" = {
-          _props.repeat = false;
           spawn-sh = "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle";
         };
         "XF86AudioPlay" = {
-          _props.repeat = false;
           spawn-sh = "playerctl play-pause";
         };
         "XF86AudioNext" = {
-          _props.repeat = false;
           spawn-sh = "playerctl next";
         };
         "XF86AudioPrev" = {
-          _props.repeat = false;
           spawn-sh = "playerctl previous";
         };
       };
