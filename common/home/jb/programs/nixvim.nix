@@ -78,6 +78,7 @@
         };
         rust_analyzer = {
           enable = true;
+          package = null;
           config = {
             settings = {
               rust-analyzer = {
