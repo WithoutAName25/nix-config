@@ -33,4 +33,6 @@
       };
     };
   };
+
+  catppuccin.fuzzel.enable = false;
 }

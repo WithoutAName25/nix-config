@@ -12,7 +12,6 @@
     historyLimit = 50000;
 
     plugins = with pkgs.tmuxPlugins; [
-      catppuccin
       sensible
       vim-tmux-navigator
     ];
