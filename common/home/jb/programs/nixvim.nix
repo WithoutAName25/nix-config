@@ -57,6 +57,61 @@
     lsp = {
       enable = true;
       servers = {
+        bashls = {
+          enable = true;
+        };
+        clangd = {
+          enable = true;
+        };
+        codebook = {
+          enable = true;
+          config = {
+            filetypes = [
+              "c"
+              "css"
+              "go"
+              "haskell"
+              "html"
+              "java"
+              "javascript"
+              "javascriptreact"
+              "markdown"
+              "php"
+              "python"
+              "ruby"
+              "rust"
+              "toml"
+              "text"
+              "typescript"
+              "typescriptreact"
+            ];
+          };
+        };
+        cssls = {
+          enable = true;
+        };
+        emmet_language_server = {
+          enable = true;
+        };
+        hls = {
+          enable = true;
+          config = {
+            filetypes = [
+              "haskell"
+              "lhaskell"
+              "cabal"
+            ];
+          };
+        };
+        jsonls = {
+          enable = true;
+        };
+        lua_ls = {
+          enable = true;
+        };
+        neocmake = {
+          enable = true;
+        };
         nixd = {
           enable = true;
           config = {
@@ -76,9 +131,12 @@
             };
           };
         };
+        pylsp = {
+          enable = true;
+        };
         rust_analyzer = {
           enable = true;
-          package = null;
+          packageFallback = true;
           config = {
             settings = {
               rust-analyzer = {
@@ -93,10 +151,24 @@
             };
           };
         };
+        svelte = {
+          enable = true;
+        };
+        tailwindcss = {
+          enable = true;
+        };
+        ts_ls = {
+          enable = true;
+        };
+        yamlls = {
+          enable = true;
+        };
       };
     };
 
     extraPackages = with pkgs; [
+      prettier
+      nodejs
       nixfmt
       rustfmt
       ripgrep
@@ -115,12 +187,54 @@
         enable = true;
         settings = {
           formatters_by_ft = {
+            css = [ "prettier" ];
+            html = [ "prettier" ];
+            javascript = [ "prettier" ];
             nix = [ "nixfmt" ];
             rust = [ "rustfmt" ];
+            svelte = [ "prettier" ];
+            typescript = [ "prettier" ];
           };
           format_on_save = {
-            timeout_ms = 500;
+            timeout_ms = 1000;
             lsp_fallback = true;
+          };
+        };
+      };
+
+      lualine = {
+        enable = true;
+        settings = {
+          sections = {
+            lualine_a = [ "mode" ];
+            lualine_b = [
+              "branch"
+              "diff"
+            ];
+            lualine_c = [
+              "filename"
+              {
+                __unkeyed-1 = "lsp_status";
+                separator = "";
+              }
+              {
+                __unkeyed-1 = "diagnostics";
+                symbols = {
+                  error = "󰅙 ";
+                  warn = " ";
+                  info = "󰋼 ";
+                  hint = "󰌵 ";
+                };
+                update_in_insert = true;
+              }
+            ];
+            lualine_x = [
+              "encoding"
+              "fileformat"
+              "filetype"
+            ];
+            lualine_y = [ "progress" ];
+            lualine_z = [ "location" ];
           };
         };
       };
@@ -144,7 +258,6 @@
       neo-tree.enable = true;
       tmux-navigator.enable = true;
       gitsigns.enable = true;
-      lualine.enable = true;
       nvim-autopairs.enable = true;
       comment.enable = true;
       which-key.enable = true;
