@@ -166,10 +166,23 @@
           };
         }
         {
-          match = {
-            _props.app-id = "^zen";
-          };
+          _children = [
+            { match._props.app-id = "^thunderbird$"; }
+            { match._props.app-id = "^zen"; }
+          ];
           open-maximized = true;
+        }
+        {
+          match._props = {
+            app-id = "steam";
+            title._raw = ''r#"^notificationtoasts_\d+_desktop$"#'';
+          };
+          default-floating-position._props = {
+            x = 10;
+            y = 10;
+            relative-to = "bottom-right";
+          };
+          open-focused = false;
         }
       ];
 
