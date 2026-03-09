@@ -29,7 +29,5 @@
         isDefault = true;
       };
     };
-
-    suppressXdgMigrationWarning = true;
   };
 }
