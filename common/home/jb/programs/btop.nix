@@ -17,9 +17,10 @@
 
     settings = {
       shown_boxes = "cpu mem net proc gpu0";
+      update_ms = 1000;
       cpu_single_graph = true;
       gpu_mirror_graph = false;
-      update_ms = 1000;
+      proc_per_core = true;
     };
   };
 }
