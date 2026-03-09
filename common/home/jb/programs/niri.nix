@@ -290,6 +290,18 @@
           _props.repeat = false;
           toggle-overview = [ ];
         };
+        "Mod+P" = {
+          _props.repeat = false;
+          screenshot = [ ];
+        };
+        "Mod+Shift+P" = {
+          _props.repeat = false;
+          screenshot-window = [ ];
+        };
+        "Mod+Ctrl+P" = {
+          _props.repeat = false;
+          screenshot-screen = [ ];
+        };
 
         "Mod+H" = {
           focus-column-left = [ ];
