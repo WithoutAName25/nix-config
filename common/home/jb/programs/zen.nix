@@ -27,6 +27,15 @@
       default = {
         id = 0;
         isDefault = true;
+
+        userChrome = ''
+          ${builtins.readFile "${inputs.catppuccin-zen}/themes/Frappe/Sapphire/userChrome.css"}
+          ${builtins.readFile "${inputs.catppuccin-zen}/themes/Mocha/Sapphire/userChrome.css"}
+        '';
+        userContent = ''
+          ${builtins.readFile "${inputs.catppuccin-zen}/themes/Frappe/Sapphire/userContent.css"}
+          ${builtins.readFile "${inputs.catppuccin-zen}/themes/Mocha/Sapphire/userContent.css"}
+        '';
       };
     };
   };

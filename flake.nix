@@ -52,6 +52,10 @@
       url = "github:catppuccin/nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    catppuccin-zen = {
+      url = "github:catppuccin/zen-browser";
+      flake = false;
+    };
   };
 
   outputs =
