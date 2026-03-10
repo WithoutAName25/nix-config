@@ -11,6 +11,7 @@
     ./network.nix
     ./portals.nix
     ./security.nix
+    ./sops.nix
     ./swap.nix
     ./users.nix
     ./utils.nix
