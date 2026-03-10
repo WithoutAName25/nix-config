@@ -4,7 +4,7 @@
   imports = [
     ./catppuccin.nix
     ./cursor.nix
-    ./dbus.nix
+    ./dconf.nix
     ./defaultApps.nix
     ./gtk.nix
     ./qt.nix
