@@ -9,7 +9,10 @@
     };
     users.jb = {
       isNormalUser = true;
-      extraGroups = [ "wheel" ];
+      extraGroups = [
+        "input"
+        "wheel"
+      ];
       hashedPasswordFile = config.sops.secrets."users/jb/password_hash".path;
       shell = pkgs.fish;
     };
