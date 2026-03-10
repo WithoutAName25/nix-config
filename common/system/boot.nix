@@ -1,12 +1,15 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
-  boot.loader = {
-    efi = {
-      canTouchEfiVariables = true;
+  boot = {
+    loader = {
+      efi = {
+        canTouchEfiVariables = true;
+      };
+      systemd-boot = {
+        enable = true;
+      };
     };
-    systemd-boot = {
-      enable = true;
-    };
+    kernelPackages = pkgs.linuxPackages_zen;
   };
 }
