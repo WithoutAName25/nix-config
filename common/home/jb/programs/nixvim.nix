@@ -239,6 +239,21 @@
         };
       };
 
+      neo-tree = {
+        enable = true;
+        settings = {
+          filesystem = {
+            filtered_items = {
+              visible = true;
+              hide_dotfiles = false;
+              hide_gitignored = true;
+              hide_ignored = false;
+              hide_by_name = [ ".git" ];
+            };
+          };
+        };
+      };
+
       telescope = {
         enable = true;
         keymaps = {
@@ -255,7 +270,6 @@
       };
 
       lspconfig.enable = true;
-      neo-tree.enable = true;
       tmux-navigator.enable = true;
       gitsigns.enable = true;
       nvim-autopairs.enable = true;
