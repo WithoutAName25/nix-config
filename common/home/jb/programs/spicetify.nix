@@ -8,7 +8,10 @@ in
 
   programs.spicetify = {
     enable = true;
-    enabledExtensions = with spicePkgs.extensions; [ beautifulLyrics ];
+    enabledExtensions = with spicePkgs.extensions; [
+      sideHide
+      spicyLyrics
+    ];
     theme = spicePkgs.themes.catppuccin;
     colorScheme = "mocha";
   };
