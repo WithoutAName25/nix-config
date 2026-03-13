@@ -33,6 +33,7 @@
       "Arduino"
       "Documents"
       "nix"
+      "nix-private"
       "Notizen"
       "Pictures"
       "Projects"

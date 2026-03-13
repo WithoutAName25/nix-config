@@ -2,6 +2,9 @@
   description = "NixOS configuration";
 
   inputs = {
+    private = {
+      url = "git+ssh://git@ssh.gitea.withoutaname.eu/WithoutAName/nix-config-private";
+    };
     nixpkgs = {
       url = "github:NixOs/nixpkgs/nixos-unstable";
     };
@@ -67,6 +70,7 @@
           modules = [
             ./common
             ./hosts/desktop
+            inputs.private.nixosModules.default
           ];
           specialArgs = {
             inherit inputs;

@@ -312,6 +312,21 @@
         "type": "github"
       }
     },
+    "private": {
+      "locked": {
+        "lastModified": 1773404012,
+        "narHash": "sha256-W916TmNDS9j0Vo0M13GKXammeiTcwQOobp4pcIQRNVM=",
+        "ref": "refs/heads/main",
+        "rev": "a700505679cc56bf592c7f1dba8df78bec4e71c9",
+        "revCount": 2,
+        "type": "git",
+        "url": "ssh://git@ssh.gitea.withoutaname.eu/WithoutAName/nix-config-private"
+      },
+      "original": {
+        "type": "git",
+        "url": "ssh://git@ssh.gitea.withoutaname.eu/WithoutAName/nix-config-private"
+      }
+    },
     "quickshell": {
       "inputs": {
         "nixpkgs": [
@@ -346,6 +361,7 @@
         "niri-nix": "niri-nix",
         "nixpkgs": "nixpkgs_2",
         "nixvim": "nixvim",
+        "private": "private",
         "sops-nix": "sops-nix",
         "spicetify-nix": "spicetify-nix",
         "zen-browser": "zen-browser"

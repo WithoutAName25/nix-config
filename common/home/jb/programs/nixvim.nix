@@ -118,7 +118,7 @@
             settings = {
               nixd =
                 let
-                  flakeExpr = "(builtins.getFlake (builtins.toString ./.))";
+                  flakeExpr = "(builtins.getFlake (builtins.toString ~/nix))";
                 in
                 {
                   nixpkgs.expr = "import ${flakeExpr}.inputs.nixpkgs { }";
