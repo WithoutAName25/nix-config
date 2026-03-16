@@ -162,6 +162,11 @@
           clip-to-geometry = true;
           background-effect = {
             blur = true;
+          };
+        }
+        {
+          match._props.is-floating = true;
+          background-effect = {
             xray = false;
           };
         }
