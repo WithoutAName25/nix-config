@@ -7,5 +7,6 @@
     ./niri.nix
     ./nix-ld.nix
     ./steam.nix
+    ./virt-manager.nix
   ];
 }

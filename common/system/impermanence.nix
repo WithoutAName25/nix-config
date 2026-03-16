@@ -3,19 +3,26 @@
 {
   imports = [ inputs.impermanence.nixosModules.impermanence ];
 
-  environment.persistence."/persistent/system" = {
-    hideMounts = true;
-    directories = [ "/var/lib/nixos" ];
-    files = [
-      "/etc/machine-id"
-      {
-        file = "/etc/sops/age.key";
-        parentDirectory = {
-          user = "root";
-          group = "users";
-          mode = "0750";
-        };
-      }
-    ];
+  environment.persistence = {
+    "/persistent/system" = {
+      hideMounts = true;
+      directories = [ "/var/lib/nixos" ];
+      files = [
+        "/etc/machine-id"
+        {
+          file = "/etc/sops/age.key";
+          parentDirectory = {
+            user = "root";
+            group = "users";
+            mode = "0750";
+          };
+        }
+      ];
+    };
+
+    "/persistent/data" = {
+      hideMounts = true;
+      directories = [ "/var/lib/libvirt" ];
+    };
   };
 }
