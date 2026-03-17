@@ -6,7 +6,11 @@
   environment.persistence = {
     "/persistent/system" = {
       hideMounts = true;
-      directories = [ "/var/lib/nixos" ];
+      directories = [
+        "/etc/NetworkManager/system-connections"
+        "/var/lib/nixos"
+        "/var/lib/OpenRGB"
+      ];
       files = [
         "/etc/machine-id"
         {
