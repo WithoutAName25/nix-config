@@ -106,6 +106,9 @@
         jsonls = {
           enable = true;
         };
+        ltex = {
+          enable = true;
+        };
         lua_ls = {
           enable = true;
         };
@@ -156,6 +159,19 @@
         };
         tailwindcss = {
           enable = true;
+        };
+        texlab = {
+          enable = true;
+          config = {
+            settings = {
+              texlab = {
+                chktex = {
+                  onEdit = true;
+                  onOpenAndSave = true;
+                };
+              };
+            };
+          };
         };
         ts_ls = {
           enable = true;
@@ -265,15 +281,28 @@
 
       treesitter = {
         enable = true;
+        grammarPackages = builtins.filter (
+          g: g.pname or "" != "tree-sitter-latex"
+        ) pkgs.vimPlugins.nvim-treesitter.allGrammars;
         highlight.enable = true;
         indent.enable = true;
       };
 
-      lspconfig.enable = true;
-      tmux-navigator.enable = true;
-      gitsigns.enable = true;
-      nvim-autopairs.enable = true;
+      vimtex = {
+        enable = true;
+        texlivePackage = null;
+        settings = {
+          compiler_method = "latexmk";
+          view_method = "zathura";
+        };
+      };
+
       comment.enable = true;
+      gitsigns.enable = true;
+      lspconfig.enable = true;
+      luasnip.enable = true;
+      nvim-autopairs.enable = true;
+      tmux-navigator.enable = true;
       which-key.enable = true;
       web-devicons.enable = true;
     };
@@ -314,6 +343,15 @@
         options = {
           silent = false;
           desc = "Format buffer";
+        };
+      }
+      {
+        mode = "n";
+        key = "<esc>";
+        action = "<cmd>noh<cr>";
+        options = {
+          silent = true;
+          desc = "Clear highlights";
         };
       }
       {
