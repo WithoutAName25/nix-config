@@ -8,6 +8,7 @@
       cat = "bat";
       eza = "eza --git --group";
       g = "git";
+      lg = "lazygit";
       l = "eza -la";
       la = "eza -laa";
       ll = "eza -la";
