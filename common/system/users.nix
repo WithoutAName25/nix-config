@@ -10,6 +10,7 @@
     users.jb = {
       isNormalUser = true;
       extraGroups = [
+        "dialout"
         "input"
         "libvirtd"
         "wheel"
