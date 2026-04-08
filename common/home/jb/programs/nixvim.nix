@@ -44,6 +44,8 @@
       clipboard = "unnamedplus";
       undofile = true;
       scrolloff = 8;
+      ignorecase = true;
+      smartcase = true;
     };
 
     colorschemes.catppuccin = {
@@ -191,6 +193,18 @@
     ];
 
     plugins = {
+      barbar = {
+        enable = true;
+        keymaps = {
+          close.key = "<A-j>";
+          closeAllButCurrentOrPinned.key = "<leader>bc";
+          next.key = "<A-l>";
+          pick.key = "<A-k>";
+          pin.key = "<leader>bp";
+          previous.key = "<A-h>";
+        };
+      };
+
       blink-cmp = {
         enable = true;
         settings = {
