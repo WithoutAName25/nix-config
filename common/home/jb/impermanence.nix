@@ -15,6 +15,7 @@
   home.persistence."/persistent/data" = {
     hideMounts = true;
     directories = [
+      ".claude"
       ".config/DankMaterialShell"
       ".config/discord"
       ".config/Nextcloud"
@@ -40,6 +41,7 @@
       "Videos"
     ];
     files = [
+      ".claude.json"
       ".local/share/fish/fish_history"
       ".ssh/known_hosts"
     ];

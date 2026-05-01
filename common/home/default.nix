@@ -4,6 +4,7 @@
   imports = [ inputs.home-manager.nixosModules.home-manager ];
 
   my.allowedUnfreePkgs = [
+    "claude-code"
     "discord"
     "spotify"
   ];
