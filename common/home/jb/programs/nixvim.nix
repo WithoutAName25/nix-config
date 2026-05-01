@@ -138,6 +138,15 @@
         };
         pylsp = {
           enable = true;
+          package = pkgs.python3.withPackages (
+            ps: with ps; [
+              python-lsp-server
+              rope
+              pyflakes
+              pycodestyle
+              yapf
+            ]
+          );
         };
         rust_analyzer = {
           enable = true;
@@ -221,6 +230,7 @@
             html = [ "prettier" ];
             javascript = [ "prettier" ];
             nix = [ "nixfmt" ];
+            python = [ "yapf" ];
             rust = [ "rustfmt" ];
             svelte = [ "prettier" ];
             typescript = [ "prettier" ];
