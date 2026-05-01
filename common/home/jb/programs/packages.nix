@@ -10,5 +10,6 @@
     kdePackages.ark
     libreoffice-fresh
     thunderbird
+    webcord
   ];
 }

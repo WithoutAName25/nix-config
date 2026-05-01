@@ -20,6 +20,7 @@
       ".config/discord"
       ".config/Nextcloud"
       ".config/spotify"
+      ".config/WebCord"
       ".config/zen/default"
       ".dotfiles" # old dotfiles
       ".local/share/direnv"
