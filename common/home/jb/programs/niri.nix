@@ -38,6 +38,10 @@
         disable-power-key-handling = [ ];
       };
 
+      cursor = {
+        hide-after-inactive-ms = 2000;
+      };
+
       output = [
         {
           _args = [ "Iiyama North America PL2493H 1211524912688" ];
