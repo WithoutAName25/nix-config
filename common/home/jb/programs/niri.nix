@@ -434,24 +434,30 @@
         };
 
         "XF86AudioRaiseVolume" = {
+          _props.allow-when-locked = true;
           spawn-sh = "wpctl set-mute @DEFAULT_AUDIO_SINK@ 0 && wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+";
         };
         "XF86AudioLowerVolume" = {
+          _props.allow-when-locked = true;
           spawn-sh = "wpctl set-mute @DEFAULT_AUDIO_SINK@ 0 && wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-";
         };
         "XF86AudioMute" = {
+          _props.allow-when-locked = true;
           spawn-sh = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
         };
         "XF86AudioMicMute" = {
           spawn-sh = "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle";
         };
         "XF86AudioPlay" = {
+          _props.allow-when-locked = true;
           spawn-sh = "playerctl play-pause";
         };
         "XF86AudioNext" = {
+          _props.allow-when-locked = true;
           spawn-sh = "playerctl next";
         };
         "XF86AudioPrev" = {
+          _props.allow-when-locked = true;
           spawn-sh = "playerctl previous";
         };
       };
