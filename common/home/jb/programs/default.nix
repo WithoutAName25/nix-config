@@ -17,6 +17,7 @@
     ./niri.nix
     ./nixvim.nix
     ./packages.nix
+    ./prism.nix
     ./spicetify.nix
     ./ssh.nix
     ./steam.nix
