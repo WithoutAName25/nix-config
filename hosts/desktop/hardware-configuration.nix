@@ -127,9 +127,15 @@
 
   my.allowedUnfreePkgs = [ "nvidia-x11" ];
 
-  hardware.nvidia = {
-    modesetting.enable = true;
-    open = true;
-    nvidiaSettings = false;
+  hardware = {
+    graphics = {
+      enable = true;
+      enable32Bit = true;
+    };
+    nvidia = {
+      modesetting.enable = true;
+      open = true;
+      nvidiaSettings = false;
+    };
   };
 }
