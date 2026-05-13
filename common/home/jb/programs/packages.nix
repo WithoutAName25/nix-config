@@ -2,7 +2,7 @@
 
 {
   home.packages = with pkgs; [
-    discord
+    discord-ptb
     fd
     hunspell
     hunspellDicts.de_DE
