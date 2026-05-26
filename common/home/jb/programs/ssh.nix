@@ -5,7 +5,7 @@
     enable = true;
     enableDefaultConfig = false;
 
-    matchBlocks = {
+    settings = {
       "*" = {
         identityFile = [
           "~/.ssh/rk_pin"
