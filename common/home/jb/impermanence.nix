@@ -18,6 +18,7 @@
       ".claude"
       ".config/DankMaterialShell"
       ".config/discord"
+      ".config/discordptb"
       ".config/Nextcloud"
       ".config/spotify"
       ".config/WebCord"
