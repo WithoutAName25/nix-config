@@ -2,6 +2,7 @@
   pkgs,
   inputs,
   configName,
+  lib,
   ...
 }:
 
@@ -10,6 +11,13 @@
 
   programs.nixvim = {
     enable = true;
+
+    nixpkgs.config.allowUnfreePredicate =
+      pkg:
+      builtins.elem (lib.getName pkg) [
+        "barbar.nvim"
+      ];
+
     defaultEditor = true;
 
     diagnostic.settings = {
