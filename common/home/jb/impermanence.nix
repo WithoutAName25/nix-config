@@ -7,6 +7,7 @@
       ".cache/spotify"
       ".cargo"
       ".local/share/Steam"
+      ".platformio"
       ".steam"
     ];
     files = [
@@ -38,6 +39,7 @@
       "nix"
       "nix-private"
       "Notizen"
+      "persistent"
       "Pictures"
       "Projects"
       "Videos"
