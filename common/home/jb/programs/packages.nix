@@ -9,6 +9,7 @@
     hunspellDicts.en_US
     kdePackages.ark
     libreoffice-fresh
+    qimgv
     thunderbird
     webcord
   ];
