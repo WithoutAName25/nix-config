@@ -20,6 +20,7 @@
       ".config/DankMaterialShell"
       ".config/discord"
       ".config/discordptb"
+      ".config/kdeconnect"
       ".config/Nextcloud"
       ".config/spotify"
       ".config/WebCord"
