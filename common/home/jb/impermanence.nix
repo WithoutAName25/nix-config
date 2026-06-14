@@ -48,12 +48,12 @@
     files = [
       ".claude.json"
       ".local/share/fish/fish_history"
-      ".ssh/known_hosts"
     ];
   };
   home.persistence."/persistent/vault" = {
     hideMounts = true;
     directories = [
+      ".ssh"
       ".thunderbird"
     ];
     files = [
