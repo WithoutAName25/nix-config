@@ -11,6 +11,7 @@
     ./fish.nix
     ./fuzzel.nix
     ./git.nix
+    ./gpg.nix
     ./kitty.nix
     ./lazygit.nix
     ./nextcloud-client.nix

@@ -12,5 +12,7 @@
     qimgv
     thunderbird
     webcord
+    yubikey-manager
+    yubioath-flutter
   ];
 }

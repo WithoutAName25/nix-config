@@ -53,6 +53,7 @@
   home.persistence."/persistent/vault" = {
     hideMounts = true;
     directories = [
+      ".local/share/gnupg"
       ".ssh"
       ".thunderbird"
     ];
