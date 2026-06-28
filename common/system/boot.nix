@@ -19,11 +19,15 @@
     };
   };
 
+  system.boot.loader.kernelFile = "vmlinuz";
+
   specialisation = {
     latest.configuration = {
+      system.boot.loader.kernelFile = lib.mkForce "bzImage";
       boot.kernelPackages = pkgs.linuxPackages_latest;
     };
     lts.configuration = {
+      system.boot.loader.kernelFile = lib.mkForce "bzImage";
       boot.kernelPackages = pkgs.linuxPackages;
     };
   };
