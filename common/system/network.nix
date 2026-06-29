@@ -27,5 +27,10 @@
         };
       };
     };
+    extraHosts = ''
+      127.0.0.42 paradise-s1.battleye.com
+      127.0.0.42 test-s1.battleye.com
+      127.0.0.42 paradiseenhanced-s1.battleye.com
+    '';
   };
 }
