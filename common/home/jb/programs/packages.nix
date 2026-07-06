@@ -3,7 +3,9 @@
 {
   home.packages = with pkgs; [
     bind.dnsutils
-    discord-ptb
+    discord
+    # discord-canary
+    # discord-ptb
     fd
     hunspell
     hunspellDicts.de_DE

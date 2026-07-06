@@ -5,6 +5,8 @@
 
   my.allowedUnfreePkgs = [
     "claude-code"
+    "discord"
+    "discord-canary"
     "discord-ptb"
     "spotify"
   ];

@@ -19,6 +19,7 @@
       ".claude"
       ".config/DankMaterialShell"
       ".config/discord"
+      ".config/discordcanary"
       ".config/discordptb"
       ".config/kdeconnect"
       ".config/Nextcloud"
