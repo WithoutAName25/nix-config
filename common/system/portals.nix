@@ -25,7 +25,7 @@
     wantedBy = [ "graphical-session.target" ];
     serviceConfig = {
       Type = "oneshot";
-      ExecStartPre = "${pkgs.coreutils-full}/bin/sleep 5";
+      ExecStartPre = "${pkgs.coreutils-full}/bin/sleep 30";
       ExecStart = "${pkgs.systemd}/bin/systemctl --user restart xdg-desktop-portal.service";
     };
   };
