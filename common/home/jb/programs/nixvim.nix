@@ -327,9 +327,11 @@
 
       treesitter = {
         enable = true;
-        grammarPackages = builtins.filter (
-          g: g.pname or "" != "tree-sitter-latex"
-        ) pkgs.vimPlugins.nvim-treesitter.allGrammars;
+        grammarPackages =
+          # builtins.filter (
+          #   g: g.pname or "" != "tree-sitter-latex"
+          # )
+          pkgs.vimPlugins.nvim-treesitter.allGrammars;
         highlight.enable = true;
         indent.enable = true;
       };
