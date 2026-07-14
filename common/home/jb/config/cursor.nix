@@ -2,6 +2,7 @@
 
 {
   home.pointerCursor = {
+    enable = true;
     name = "breeze_cursors";
     package = pkgs.kdePackages.breeze;
     size = 24;
