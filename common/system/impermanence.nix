@@ -4,6 +4,16 @@
   imports = [ inputs.impermanence.nixosModules.impermanence ];
 
   environment.persistence = {
+    "/persistent/cache/" = {
+      hideMounts = true;
+      directories = [ "/var/lib/private/ollama" ];
+    };
+
+    "/persistent/data" = {
+      hideMounts = true;
+      directories = [ "/var/lib/libvirt" ];
+    };
+
     "/persistent/system" = {
       hideMounts = true;
       directories = [
@@ -26,11 +36,6 @@
           };
         }
       ];
-    };
-
-    "/persistent/data" = {
-      hideMounts = true;
-      directories = [ "/var/lib/libvirt" ];
     };
   };
 }
