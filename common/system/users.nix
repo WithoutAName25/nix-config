@@ -11,6 +11,7 @@
       isNormalUser = true;
       extraGroups = [
         "dialout"
+        "docker"
         "input"
         "libvirtd"
         "wheel"
