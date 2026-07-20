@@ -37,7 +37,7 @@ in
             custom_palette = true;
             icon_theme = "Papirus-Dark";
             standard_dialogs = "xdgdesktopportal";
-            style = "kvantum-dark";
+            style = "kvantum";
           };
           Interface = {
             activate_item_on_single_click = 2;
