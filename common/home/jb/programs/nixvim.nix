@@ -251,6 +251,7 @@
             css = [ "prettier" ];
             html = [ "prettier" ];
             javascript = [ "prettier" ];
+            markdown = [ "prettier" ];
             nix = [ "nixfmt" ];
             python = [ "yapf" ];
             rust = [ "rustfmt" ];
@@ -345,11 +346,14 @@
         };
       };
 
+      bullets.enable = true;
       comment.enable = true;
       gitsigns.enable = true;
       lspconfig.enable = true;
       luasnip.enable = true;
+      markdown-preview.enable = true;
       nvim-autopairs.enable = true;
+      render-markdown.enable = true;
       tmux-navigator.enable = true;
       which-key.enable = true;
       web-devicons.enable = true;
