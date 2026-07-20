@@ -244,6 +244,20 @@
         };
       };
 
+      bullets = {
+        enable = true;
+        settings = {
+          outline_levels = [
+            "ROM"
+            "ABC"
+            "num"
+            "abc"
+            "rom"
+            "std-"
+          ];
+        };
+      };
+
       conform-nvim = {
         enable = true;
         settings = {
@@ -346,7 +360,6 @@
         };
       };
 
-      bullets.enable = true;
       comment.enable = true;
       gitsigns.enable = true;
       lspconfig.enable = true;
