@@ -35,6 +35,7 @@
       ".local/share/Nextcloud"
       ".local/share/Steam-userdata"
       ".local/share/zoxide"
+      ".local/state/syncthing"
       ".pki/nssdb"
       "Arduino"
       "Documents"

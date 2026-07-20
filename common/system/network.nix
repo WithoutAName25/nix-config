@@ -16,6 +16,11 @@
         iifname "virbr0" oifname "virbr0" accept comment "libvirt VM cross traffic"
       '';
       interfaces = {
+        "enp42s0" = {
+          allowedTCPPorts = [
+            22000
+          ];
+        };
         "virbr0" = {
           allowedTCPPorts = [
             53
