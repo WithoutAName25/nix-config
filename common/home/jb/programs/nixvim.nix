@@ -215,13 +215,34 @@
       };
     };
 
-    extraPackages = with pkgs; [
-      prettier
-      nodejs
-      nixfmt
-      rustfmt
-      ripgrep
-    ];
+    extraPackages =
+      let
+        libtexprintf = pkgs.stdenv.mkDerivation {
+          pname = "libtexprintf";
+          version = "1.31";
+
+          src = pkgs.fetchFromGitHub {
+            owner = "bartp5";
+            repo = "libtexprintf";
+            tag = "v1.31";
+            hash = "sha256-OXDcohfSfik0H1MpoznN267OVTYkW75N+TIF6lRRvZ0=";
+          };
+
+          nativeBuildInputs = [
+            pkgs.autoreconfHook
+            pkgs.pkg-config
+          ];
+        };
+      in
+      with pkgs;
+      [
+        libtexprintf
+        prettier
+        nodejs
+        nixfmt
+        rustfmt
+        ripgrep
+      ];
 
     plugins = {
       barbar = {
@@ -331,6 +352,18 @@
         };
       };
 
+      render-markdown = {
+        enable = true;
+        settings = {
+          render_modes = [
+            "n"
+            "c"
+            "t"
+            "i"
+          ];
+        };
+      };
+
       telescope = {
         enable = true;
         keymaps = {
@@ -366,7 +399,6 @@
       luasnip.enable = true;
       markdown-preview.enable = true;
       nvim-autopairs.enable = true;
-      render-markdown.enable = true;
       tmux-navigator.enable = true;
       which-key.enable = true;
       web-devicons.enable = true;
