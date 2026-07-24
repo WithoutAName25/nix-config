@@ -4,6 +4,22 @@
   programs.fish = {
     enable = true;
 
+    functions = {
+      o = {
+        body = ''
+          ob $argv
+          exit
+        '';
+        wraps = "xdg-open";
+        description = "Open a file with the default application and close the shell";
+      };
+      ob = {
+        body = "setsid xdg-open $argv &>/dev/null";
+        wraps = "xdg-open";
+        description = "Open a file with the default application detached from the shell";
+      };
+    };
+
     shellAliases = {
       cat = "bat";
       eza = "eza --git --group";
