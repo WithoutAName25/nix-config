@@ -228,6 +228,7 @@
           "steam"
           "-silent"
         ]
+        [ "mattermost-desktop" ]
       ];
       # spawn-sh-at-startup = [ ];
 

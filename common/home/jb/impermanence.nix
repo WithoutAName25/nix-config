@@ -22,6 +22,7 @@
       ".config/discordcanary"
       ".config/discordptb"
       ".config/kdeconnect"
+      ".config/Mattermost"
       ".config/Nextcloud"
       ".config/spotify"
       ".config/WebCord"

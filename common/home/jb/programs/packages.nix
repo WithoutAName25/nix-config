@@ -14,6 +14,7 @@
     knot-dns
     libreoffice-fresh
     libqalculate
+    mattermost-desktop
     qimgv
     thunderbird
     traceroute
