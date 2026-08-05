@@ -8,6 +8,9 @@
     nixpkgs = {
       url = "github:NixOs/nixpkgs/nixos-unstable";
     };
+    nixpkgs-small = {
+      url = "github:NixOs/nixpkgs/nixos-unstable-small";
+    };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -19,10 +22,6 @@
     };
     sops-nix = {
       url = "github:Mic92/sops-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    niri-nix = {
-      url = "git+https://codeberg.org/BANanaD3V/niri-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixvim = {

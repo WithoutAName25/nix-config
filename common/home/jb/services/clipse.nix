@@ -5,8 +5,10 @@
 
   services.clipse = {
     enable = true;
-    imageDisplay = {
-      type = "kitty";
+    settings = {
+      imageDisplay = {
+        type = "kitty";
+      };
     };
   };
 }

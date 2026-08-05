@@ -1,16 +1,16 @@
 {
-  inputs,
   pkgs,
+  lib,
   ...
 }:
 
 {
-  imports = [ inputs.niri-nix.homeModules.default ];
-
   wayland.windowManager.niri = {
     enable = true;
 
-    systemd.variables = [ "--all" ];
+    package = pkgs.niri;
+    xwaylandSatellitePackage = pkgs.xwayland-satellite;
+    portalPackage = null;
 
     settings = {
       input = {
@@ -41,57 +41,6 @@
       cursor = {
         hide-after-inactive-ms = 2000;
       };
-
-      output = [
-        {
-          _args = [ "Iiyama North America PL2493H 1211524912688" ];
-          scale = 1;
-          transform = "90";
-          position._props = {
-            x = -1080;
-            y = -420;
-          };
-          mode = "1920x1080@74.973";
-          layout = {
-            default-column-width = {
-              proportion = 1.0;
-            };
-            preset-column-widths._children = [
-              { proportion = 0.5; }
-              { proportion = 1.0; }
-            ];
-          };
-        }
-        {
-          _args = [ "Microstep MSI MAG241C 0x000001C5" ];
-          scale = 1;
-          position._props = {
-            x = 0;
-            y = 0;
-          };
-          mode = "1920x1080@143.855";
-          focus-at-startup = [ ];
-        }
-        {
-          _args = [ "Iiyama North America PL2493H 1211524912189" ];
-          scale = 1;
-          transform = "270";
-          position._props = {
-            x = 1920;
-            y = -420;
-          };
-          mode = "1920x1080@74.973";
-          layout = {
-            default-column-width = {
-              proportion = 1.0;
-            };
-            preset-column-widths._children = [
-              { proportion = 0.5; }
-              { proportion = 1.0; }
-            ];
-          };
-        }
-      ];
 
       layout = {
         gaps = 10;
@@ -147,51 +96,144 @@
         skip-at-startup = [ ];
       };
 
-      layer-rule = [
+      _children = [
         {
-          match = {
-            _props.namespace = "^launcher$";
-          };
-          geometry-corner-radius = 12;
-          background-effect = {
-            blur = true;
-            xray = false;
+          output = {
+            _args = [ "Iiyama North America PL2493H 1211524912688" ];
+            scale = 1;
+            transform = "90";
+            position._props = {
+              x = -1080;
+              y = -420;
+            };
+            mode = "1920x1080@74.973";
+            layout = {
+              default-column-width = {
+                proportion = 1.0;
+              };
+              preset-column-widths._children = [
+                { proportion = 0.5; }
+                { proportion = 1.0; }
+              ];
+            };
           };
         }
-      ];
+        {
+          output = {
+            _args = [ "Microstep MSI MAG241C 0x000001C5" ];
+            scale = 1;
+            position._props = {
+              x = 0;
+              y = 0;
+            };
+            mode = "1920x1080@143.855";
+            focus-at-startup = [ ];
+          };
+        }
+        {
+          output = {
+            _args = [ "Iiyama North America PL2493H 1211524912189" ];
+            scale = 1;
+            transform = "270";
+            position._props = {
+              x = 1920;
+              y = -420;
+            };
+            mode = "1920x1080@74.973";
+            layout = {
+              default-column-width = {
+                proportion = 1.0;
+              };
+              preset-column-widths._children = [
+                { proportion = 0.5; }
+                { proportion = 1.0; }
+              ];
+            };
+          };
+        }
 
-      window-rule = [
         {
-          geometry-corner-radius = 12;
-          clip-to-geometry = true;
-          background-effect = {
-            blur = true;
-          };
+          spawn-at-startup =
+            let
+              wallpaper = "${pkgs.nixos-artwork.wallpapers.catppuccin-mocha.gnomeFilePath}";
+              rotatedWallpaper = pkgs.runCommand "wallpaper-rotated.png" {
+                nativeBuildInputs = [ pkgs.imagemagick ];
+              } "magick ${wallpaper} -rotate 90 $out";
+            in
+            [
+              "${lib.getExe pkgs.swaybg}"
+              "--image"
+              "${wallpaper}"
+              "--mode"
+              "fit"
+              "--output"
+              "DP-2"
+              "--image"
+              "${rotatedWallpaper}"
+              "--output"
+              "DP-3"
+              "--image"
+              "${rotatedWallpaper}"
+            ];
         }
         {
-          match._props.is-floating = true;
-          background-effect = {
-            xray = false;
-          };
-        }
-        {
-          _children = [
-            { match._props.app-id = "^thunderbird$"; }
-            { match._props.app-id = "^zen"; }
+          spawn-at-startup = [
+            "steam"
+            "-silent"
           ];
-          open-maximized = true;
         }
         {
-          match._props = {
-            app-id = "steam";
-            title._raw = ''r#"^notificationtoasts_\d+_desktop$"#'';
+          spawn-at-startup = [ "mattermost-desktop" ];
+        }
+
+        {
+          layer-rule = {
+            match = {
+              _props.namespace = "^launcher$";
+            };
+            geometry-corner-radius = 12;
+            background-effect = {
+              blur = true;
+              xray = false;
+            };
           };
-          default-floating-position._props = {
-            x = 10;
-            y = 10;
-            relative-to = "bottom-right";
+        }
+
+        {
+          window-rule = {
+            geometry-corner-radius = 12;
+            clip-to-geometry = true;
+            background-effect.blur = true;
           };
-          open-focused = false;
+        }
+        {
+          window-rule = {
+            match._props.is-floating = true;
+            background-effect.xray = false;
+          };
+        }
+        {
+          window-rule = {
+            _children = [
+              { match._props.app-id = "^thunderbird$"; }
+              { match._props.app-id = "^zen"; }
+            ];
+            open-maximized = true;
+          };
+        }
+        {
+          window-rule = {
+            match._props = {
+              app-id = "steam";
+              title = "^notificationtoasts_[0-9]+_desktop$";
+            };
+            default-floating-position._props = {
+              x = 10;
+              y = 10;
+              relative-to = "bottom-right";
+            };
+            open-focused = false;
+          };
         }
       ];
 
@@ -199,38 +241,6 @@
         "QT_QPA_PLATFORM" = "wayland";
         "QT_WAYLAND_DISABLE_WINDOWDECORATION" = "1";
       };
-
-      spawn-at-startup = [
-        (
-          let
-            wallpaper = "${pkgs.nixos-artwork.wallpapers.catppuccin-mocha.gnomeFilePath}";
-            rotatedWallpaper = pkgs.runCommand "wallpaper-rotated.png" {
-              nativeBuildInputs = [ pkgs.imagemagick ];
-            } "magick ${wallpaper} -rotate 90 $out";
-          in
-          [
-            "${pkgs.swaybg}/bin/swaybg"
-            "--image"
-            "${wallpaper}"
-            "--mode"
-            "fit"
-            "--output"
-            "DP-2"
-            "--image"
-            "${rotatedWallpaper}"
-            "--output"
-            "DP-3"
-            "--image"
-            "${rotatedWallpaper}"
-          ]
-        )
-        [
-          "steam"
-          "-silent"
-        ]
-        [ "mattermost-desktop" ]
-      ];
-      # spawn-sh-at-startup = [ ];
 
       gestures = {
         hot-corners = {
