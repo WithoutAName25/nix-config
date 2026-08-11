@@ -56,7 +56,7 @@
   };
 
   outputs =
-    { nixpkgs, ... }@inputs:
+    { self, nixpkgs, ... }@inputs:
     {
       nixosConfigurations = {
         desktop = nixpkgs.lib.nixosSystem {
@@ -71,6 +71,17 @@
             configName = "desktop";
           };
         };
+
+        iso = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
+            ./hosts/iso
+          ];
+          specialArgs = { inherit inputs; };
+        };
       };
+
+      packages.x86_64-linux.iso = self.nixosConfigurations.iso.config.system.build.isoImage;
     };
 }
