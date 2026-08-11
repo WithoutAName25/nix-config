@@ -1,6 +1,13 @@
 { pkgs, ... }:
 
 {
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
+
+  zramSwap.enable = true;
+
   services.openssh = {
     enable = true;
     settings.PermitRootLogin = "yes";
@@ -48,5 +55,6 @@
     btrfs-progs
     cryptsetup
     usbutils
+    tmux
   ];
 }
