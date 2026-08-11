@@ -212,11 +212,11 @@
     },
     "private": {
       "locked": {
-        "lastModified": 1781974168,
-        "narHash": "sha256-y6/38ZDm3RswonH+FJWuPz+xV6CqsVdDEZ8nn9BzvUA=",
+        "lastModified": 1786447593,
+        "narHash": "sha256-FgqndepoRzXS54b95k9t6v4Fonzk/kJFXB7l7J2ZUwQ=",
         "ref": "refs/heads/main",
-        "rev": "51c472f72c3dce914737c8dd541540230e2ad32e",
-        "revCount": 7,
+        "rev": "373885ba058bde1b856f5f3b818013491189ff7d",
+        "revCount": 8,
         "type": "git",
         "url": "ssh://git@ssh.gitea.withoutaname.eu/WithoutAName/nix-config-private"
       },

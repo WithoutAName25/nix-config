@@ -65,10 +65,24 @@
             ./common
             ./hosts/desktop
             inputs.private.nixosModules.default
+            inputs.private.nixosModules.desktop
           ];
           specialArgs = {
             inherit inputs;
             configName = "desktop";
+          };
+        };
+        laptop = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            ./common
+            ./hosts/laptop
+            inputs.private.nixosModules.default
+            inputs.private.nixosModules.laptop
+          ];
+          specialArgs = {
+            inherit inputs;
+            configName = "laptop";
           };
         };
 
