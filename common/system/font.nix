@@ -3,6 +3,9 @@
 {
   fonts = {
     packages = with pkgs; [
+      dejavu_fonts
+      libertinus
+      lmodern
       noto-fonts
       noto-fonts-cjk-sans
       noto-fonts-color-emoji

@@ -252,11 +252,13 @@
       with pkgs;
       [
         libtexprintf
+        pandoc
         prettier
         nodejs
         nixfmt
         rustfmt
         ripgrep
+        texliveMedium
       ];
 
     plugins = {
@@ -457,6 +459,36 @@
           silent = false;
           desc = "Format buffer";
         };
+      }
+      {
+        mode = "n";
+        key = "<leader>cp";
+        action.__raw = ''
+          function()
+            local src = vim.api.nvim_buf_get_name(0)
+            if src == "" then
+              vim.notify("Buffer has no file on disk", vim.log.levels.ERROR)
+              return
+            end
+            vim.cmd("write")
+            local out = vim.fn.fnamemodify(src, ":r") .. ".pdf"
+            vim.notify("Compiling " .. vim.fn.fnamemodify(src, ":t") .. " ...")
+            vim.system(
+              { "pandoc", src, "--pdf-engine=xelatex", "-o", out },
+              { text = true, cwd = vim.fn.fnamemodify(src, ":h") },
+              function(res)
+                vim.schedule(function()
+                  if res.code == 0 then
+                    vim.notify("PDF written: " .. out)
+                  else
+                    vim.notify(res.stderr ~= "" and res.stderr or res.stdout, vim.log.levels.ERROR)
+                  end
+                end)
+              end
+            )
+          end
+        '';
+        options.desc = "Markdown → PDF (pandoc)";
       }
       {
         mode = "n";
