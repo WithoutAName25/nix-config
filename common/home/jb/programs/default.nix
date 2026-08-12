@@ -21,7 +21,6 @@
     ./prism.nix
     ./spicetify.nix
     ./ssh.nix
-    ./steam.nix
     ./tmux.nix
     ./utils.nix
     ./zen.nix

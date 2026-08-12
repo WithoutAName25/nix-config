@@ -6,7 +6,6 @@
   environment.persistence = {
     "/persistent/cache/" = {
       hideMounts = true;
-      directories = [ "/var/lib/private/ollama" ];
     };
 
     "/persistent/data" = {
@@ -20,7 +19,6 @@
         "/etc/NetworkManager/system-connections"
         "/var/db/sudo"
         "/var/lib/nixos"
-        "/var/lib/OpenRGB"
         "/var/lib/systemd/coredump"
         "/var/lib/systemd/timers"
         "/var/log"

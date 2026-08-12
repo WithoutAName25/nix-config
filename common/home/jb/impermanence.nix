@@ -6,9 +6,7 @@
     directories = [
       ".cache/spotify"
       ".cargo"
-      ".local/share/Steam"
       ".platformio"
-      ".steam"
     ];
     files = [
     ];
@@ -34,7 +32,6 @@
         mode = "0700";
       }
       ".local/share/Nextcloud"
-      ".local/share/Steam-userdata"
       ".local/share/zoxide"
       ".local/state/syncthing"
       ".pki/nssdb"
