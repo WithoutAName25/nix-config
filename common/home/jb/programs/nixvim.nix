@@ -112,7 +112,6 @@
               "java"
               "javascript"
               "javascriptreact"
-              "markdown"
               "php"
               "python"
               "ruby"
