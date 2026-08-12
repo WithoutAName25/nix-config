@@ -1,0 +1,32 @@
+;; vim: filetype=lisp
+
+(defsrc
+  caps
+  a   s   d   f   g   h   j   k   l   ;
+)
+
+(defvar
+  tap-time 200
+  hold-time 150
+)
+
+(deflayer base
+  @escctrl
+  @a  @s  @d  @f  @g  @h  @j  @k  @l  @;
+)
+
+(defalias
+  escctrl (tap-hold-release $tap-time $hold-time esc lctl)
+
+  a (tap-hold-release $tap-time $hold-time a lalt)
+  s (tap-hold-release $tap-time $hold-time s lctl)
+  d (tap-hold-release $tap-time $hold-time d lsft)
+  f (tap-hold-release $tap-time $hold-time f lmet)
+  g (tap-hold-release $tap-time $hold-time g ralt)
+  h (tap-hold-release $tap-time $hold-time h ralt)
+  j (tap-hold-release $tap-time $hold-time j lmet)
+  k (tap-hold-release $tap-time $hold-time k lsft)
+  l (tap-hold-release $tap-time $hold-time l lctl)
+  ; (tap-hold-release $tap-time $hold-time ; lalt)
+)
+

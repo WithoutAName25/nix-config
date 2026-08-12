@@ -1,4 +1,4 @@
-{ ... }:
+{ configName, ... }:
 
 {
   programs.fish = {
@@ -31,7 +31,7 @@
       ls = "eza -l";
       n = "niri-session";
       nix-shell = "nix-shell --command fish";
-      nrs = "sudo nixos-rebuild switch --flake ~/nix#desktop";
+      nrs = "sudo nixos-rebuild switch --flake ~/nix#${configName}";
       v = "nvim";
     };
 

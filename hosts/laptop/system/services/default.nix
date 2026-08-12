@@ -1,0 +1,8 @@
+{ ... }:
+
+{
+  imports = [
+    ./kanata
+    ./upower.nix
+  ];
+}

@@ -141,5 +141,6 @@
       enable = true;
       tailor-gui.enable = true;
     };
+    uinput.enable = true;
   };
 }
