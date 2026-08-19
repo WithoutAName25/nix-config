@@ -13,6 +13,11 @@
     portalPackage = null;
 
     settings = {
+      include = {
+        _props.optional = true;
+        _args = [ "dms/outputs.kdl" ];
+      };
+
       input = {
         keyboard = {
           xkb = {
