@@ -20,6 +20,7 @@
     thunderbird
     traceroute
     webcord
+    wl-mirror
     yubikey-manager
     yubioath-flutter
   ];
