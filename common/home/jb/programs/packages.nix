@@ -3,6 +3,7 @@
 {
   home.packages = with pkgs; [
     bind.dnsutils
+    chromium
     discord
     # discord-canary
     # discord-ptb
