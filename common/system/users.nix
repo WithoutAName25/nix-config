@@ -14,6 +14,7 @@
         "docker"
         "input"
         "libvirtd"
+        "networkmanager"
         "wheel"
       ];
       hashedPasswordFile = config.sops.secrets."users/jb/password_hash".path;
