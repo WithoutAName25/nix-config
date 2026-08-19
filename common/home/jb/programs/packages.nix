@@ -16,6 +16,7 @@
     libreoffice-fresh
     libqalculate
     mattermost-desktop
+    networkmanagerapplet
     qimgv
     thunderbird
     traceroute
