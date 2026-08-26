@@ -4,6 +4,7 @@
   home.persistence."/persistent/cache" = {
     hideMounts = true;
     directories = [
+      ".cache/huggingface"
       ".cache/spotify"
       ".cargo"
       ".platformio"
