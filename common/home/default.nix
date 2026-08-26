@@ -8,6 +8,7 @@
     "discord"
     "discord-canary"
     "discord-ptb"
+    "discord-unwrapped"
     "spotify"
   ];
 
