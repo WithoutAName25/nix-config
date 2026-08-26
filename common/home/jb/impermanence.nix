@@ -27,6 +27,7 @@
       ".config/WebCord"
       ".config/zen/default"
       ".dotfiles" # old dotfiles
+      ".local/share/containers"
       ".local/share/direnv"
       {
         directory = ".local/share/keyrings";
