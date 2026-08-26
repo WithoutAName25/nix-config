@@ -137,5 +137,6 @@
       open = true;
       nvidiaSettings = false;
     };
+    nvidia-container-toolkit.enable = true;
   };
 }
