@@ -13,7 +13,7 @@
     hunspellDicts.en_US
     kdePackages.ark
     knot-dns
-    libreoffice-fresh
+    libreoffice-stable
     libqalculate
     mattermost-desktop
     networkmanagerapplet
