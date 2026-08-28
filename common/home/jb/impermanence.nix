@@ -5,6 +5,7 @@
     hideMounts = true;
     directories = [
       ".cache/huggingface"
+      ".cache/jdtls"
       ".cache/spotify"
       ".cargo"
       ".gradle"

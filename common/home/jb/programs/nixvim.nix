@@ -3,6 +3,7 @@
   inputs,
   configName,
   lib,
+  config,
   ...
 }:
 
@@ -68,6 +69,39 @@
             vim.opt_local.spell = true
             vim.opt_local.formatoptions:append("t")
             vim.opt_local.formatoptions:append("n")
+          end
+        '';
+      }
+      {
+        event = [ "FileType" ];
+        pattern = [ "java" ];
+        callback.__raw = ''
+          function(args)
+            local jdtls = require("jdtls")
+            local o = { buffer = args.buf }
+            vim.keymap.set("n", "<leader>jo", jdtls.organize_imports, o)
+            vim.keymap.set("n", "<leader>jv", jdtls.extract_variable, o)
+            vim.keymap.set("n", "<leader>jc", jdtls.extract_constant, o)
+            vim.keymap.set("v", "<leader>jm", function() jdtls.extract_method(true) end, o)
+          end
+        '';
+      }
+      {
+        event = [ "FileType" ];
+        pattern = [ "java" ];
+        callback.__raw = ''
+          function(args)
+            local jdtls = require("jdtls")
+            local function map(mode, lhs, rhs, desc)
+              vim.keymap.set(mode, lhs, rhs, { buffer = args.buf, desc = desc })
+            end
+
+            map("n", "<leader>jo", jdtls.organize_imports, "Java: organize imports")
+            map("n", "<leader>jv", jdtls.extract_variable, "Java: extract variable")
+            map("v", "<leader>jv", function() jdtls.extract_variable(true) end, "Java: extract variable")
+            map("n", "<leader>jc", jdtls.extract_constant, "Java: extract constant")
+            map("v", "<leader>jc", function() jdtls.extract_constant(true) end, "Java: extract constant")
+            map("v", "<leader>jm", function() jdtls.extract_method(true) end, "Java: extract method")
           end
         '';
       }
@@ -251,11 +285,13 @@
       in
       with pkgs;
       [
+        gradle
+        jdk21
         libtexprintf
+        nixfmt
+        nodejs
         pandoc
         prettier
-        nodejs
-        nixfmt
         rustfmt
         ripgrep
         texliveMedium
@@ -302,6 +338,7 @@
           formatters_by_ft = {
             css = [ "prettier" ];
             html = [ "prettier" ];
+            java = [ "google-java-format" ];
             javascript = [ "prettier" ];
             markdown = [ "prettier" ];
             nix = [ "nixfmt" ];
@@ -310,9 +347,70 @@
             svelte = [ "prettier" ];
             typescript = [ "prettier" ];
           };
+          formatters = {
+            google-java-format = {
+              command = lib.getExe pkgs.google-java-format;
+            };
+          };
           format_on_save = {
             timeout_ms = 1000;
             lsp_fallback = true;
+          };
+        };
+      };
+
+      jdtls = {
+        enable = true;
+
+        settings = {
+          cmd = [
+            "jdtls"
+            "-data"
+            "${config.home.homeDirectory}/.cache/jdtls/workspace"
+            "-configuration"
+            "${config.home.homeDirectory}/.cache/jdtls/config"
+          ];
+
+          rootDir.__raw = ''
+            vim.fs.root(0, {
+              "settings.gradle", "settings.gradle.kts",
+              "build.gradle", "build.gradle.kts",
+              "gradlew", "pom.xml", ".git",
+            })
+          '';
+
+          settings = {
+            java = {
+              configuration.runtimes = [
+                {
+                  name = "JavaSE-21";
+                  path = "${pkgs.jdk21}/lib/openjdk";
+                  default = true;
+                }
+                {
+                  name = "JavaSE-17";
+                  path = "${pkgs.jdk17}/lib/openjdk";
+                }
+              ];
+
+              import.gradle = {
+                enabled = true;
+                wrapper.enabled = true;
+                java.home = "${pkgs.jdk21}/lib/openjdk";
+              };
+
+              format.enabled = false;
+              signatureHelp.enabled = true;
+              contentProvider.preferred = "fernflower";
+              eclipse.downloadSources = true;
+              maven.downloadSources = true;
+              references.includeDecompiledSources = true;
+              inlayHints.parameterNames.enabled = "all";
+              sources.organizeImports = {
+                starThreshold = 9999;
+                staticStarThreshold = 9999;
+              };
+            };
           };
         };
       };
