@@ -7,6 +7,7 @@
       ".cache/huggingface"
       ".cache/spotify"
       ".cargo"
+      ".gradle"
       ".platformio"
     ];
     files = [
