@@ -463,6 +463,8 @@
               hide_ignored = false;
               hide_by_name = [ ".git" ];
             };
+            group_empty_dirs = true;
+            scan_mode = "deep";
           };
         };
       };
