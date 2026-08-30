@@ -6,6 +6,7 @@
     directories = [
       ".cache/huggingface"
       ".cache/jdtls"
+      ".cache/kicad"
       ".cache/spotify"
       ".cargo"
       ".gradle"
@@ -23,6 +24,7 @@
       ".config/discordcanary"
       ".config/discordptb"
       ".config/kdeconnect"
+      ".config/kicad"
       ".config/Mattermost"
       ".config/Nextcloud"
       ".config/spotify"
@@ -35,6 +37,7 @@
         directory = ".local/share/keyrings";
         mode = "0700";
       }
+      ".local/share/kicad"
       ".local/share/Nextcloud"
       ".local/share/zoxide"
       ".local/state/syncthing"

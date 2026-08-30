@@ -12,6 +12,7 @@
     ./fuzzel.nix
     ./git.nix
     ./gpg.nix
+    ./kicad.nix
     ./kitty.nix
     ./lazygit.nix
     ./nextcloud-client.nix
