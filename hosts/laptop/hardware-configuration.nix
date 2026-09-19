@@ -125,6 +125,15 @@
 
     enableRedistributableFirmware = true;
 
+    bluetooth = {
+      enable = true;
+      powerOnBoot = false;
+      settings.General = {
+        Experimental = true;
+        FastConnectable = true;
+      };
+    };
+
     graphics = {
       enable = true;
       enable32Bit = true;
