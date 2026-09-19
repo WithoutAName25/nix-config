@@ -3,6 +3,6 @@
 {
   imports = [
     ./services
-    ./imermanence.nix
+    ./impermanence.nix
   ];
 }

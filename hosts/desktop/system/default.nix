@@ -4,6 +4,6 @@
   imports = [
     ./programs
     ./services
-    ./imermanence.nix
+    ./impermanence.nix
   ];
 }
