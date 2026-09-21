@@ -104,7 +104,7 @@
       _children = [
         {
           output = {
-            _args = [ "Iiyama North America PL2493H 1211524912688" ];
+            _args = [ "iiyama Corporation PL2493H 1211524912688" ];
             scale = 1;
             transform = "90";
             position._props = {
@@ -137,7 +137,7 @@
         }
         {
           output = {
-            _args = [ "Iiyama North America PL2493H 1211524912189" ];
+            _args = [ "iiyama Corporation PL2493H 1211524912189" ];
             scale = 1;
             transform = "270";
             position._props = {
