@@ -10,6 +10,7 @@
   home.persistence."/persistent/data" = {
     directories = [
       ".local/share/Steam-userdata"
+      "mod.io"
     ];
   };
 }
