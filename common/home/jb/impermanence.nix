@@ -4,6 +4,7 @@
   home.persistence."/persistent/cache" = {
     hideMounts = true;
     directories = [
+      ".cache/dms"
       ".cache/huggingface"
       ".cache/jdtls"
       ".cache/kicad"
@@ -19,10 +20,10 @@
     hideMounts = true;
     directories = [
       ".claude"
-      ".config/DankMaterialShell"
       ".config/discord"
       ".config/discordcanary"
       ".config/discordptb"
+      ".config/dms"
       ".config/kdeconnect"
       ".config/kicad"
       ".config/Mattermost"
@@ -40,6 +41,7 @@
       ".local/share/kicad"
       ".local/share/Nextcloud"
       ".local/share/zoxide"
+      ".local/state/dms"
       ".local/state/syncthing"
       ".pki/nssdb"
       "Arduino"
