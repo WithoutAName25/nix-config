@@ -209,7 +209,7 @@
       "inputs": {
         "flake-parts": "flake-parts",
         "nixpkgs": [
-          "nixpkgs-small"
+          "nixpkgs"
         ],
         "systems": "systems"
       },
