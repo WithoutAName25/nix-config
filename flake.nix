@@ -53,6 +53,9 @@
       url = "github:catppuccin/zen-browser";
       flake = false;
     };
+    cornelis = {
+      url = "github:agda/cornelis/v2.8.0";
+    };
   };
 
   outputs =

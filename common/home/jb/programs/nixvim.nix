@@ -7,17 +7,23 @@
   ...
 }:
 
+let
+  cornelisPkgs = inputs.cornelis.packages.${pkgs.stdenv.hostPlatform.system};
+in
 {
   imports = [ inputs.nixvim.homeModules.nixvim ];
 
   programs.nixvim = {
     enable = true;
 
-    nixpkgs.config.allowUnfreePredicate =
-      pkg:
-      builtins.elem (lib.getName pkg) [
-        "barbar.nvim"
-      ];
+    nixpkgs = {
+      source = inputs.nixpkgs;
+      config.allowUnfreePredicate =
+        pkg:
+        builtins.elem (lib.getName pkg) [
+          "barbar.nvim"
+        ];
+    };
 
     defaultEditor = true;
 
@@ -58,54 +64,94 @@
       signcolumn = "yes";
     };
 
-    autoCmd = [
-      {
-        event = [ "FileType" ];
-        pattern = [ "gitcommit" ];
-        callback.__raw = ''
-          function()
-            vim.opt_local.textwidth = 72
-            vim.opt_local.colorcolumn = "51,73"
-            vim.opt_local.spell = true
-            vim.opt_local.formatoptions:append("t")
-            vim.opt_local.formatoptions:append("n")
-          end
-        '';
-      }
-      {
-        event = [ "FileType" ];
-        pattern = [ "java" ];
-        callback.__raw = ''
-          function(args)
-            local jdtls = require("jdtls")
-            local o = { buffer = args.buf }
-            vim.keymap.set("n", "<leader>jo", jdtls.organize_imports, o)
-            vim.keymap.set("n", "<leader>jv", jdtls.extract_variable, o)
-            vim.keymap.set("n", "<leader>jc", jdtls.extract_constant, o)
-            vim.keymap.set("v", "<leader>jm", function() jdtls.extract_method(true) end, o)
-          end
-        '';
-      }
-      {
-        event = [ "FileType" ];
-        pattern = [ "java" ];
-        callback.__raw = ''
-          function(args)
-            local jdtls = require("jdtls")
-            local function map(mode, lhs, rhs, desc)
-              vim.keymap.set(mode, lhs, rhs, { buffer = args.buf, desc = desc })
-            end
+    filetype = {
+      extension = {
+        agda = "agda";
+        # lagda = "tex";
+      };
+    };
 
-            map("n", "<leader>jo", jdtls.organize_imports, "Java: organize imports")
-            map("n", "<leader>jv", jdtls.extract_variable, "Java: extract variable")
-            map("v", "<leader>jv", function() jdtls.extract_variable(true) end, "Java: extract variable")
-            map("n", "<leader>jc", jdtls.extract_constant, "Java: extract constant")
-            map("v", "<leader>jc", function() jdtls.extract_constant(true) end, "Java: extract constant")
-            map("v", "<leader>jm", function() jdtls.extract_method(true) end, "Java: extract method")
-          end
+    # extraFiles."after/queries/latex/injections.scm".text = ''
+    #   ;; extends
+    #
+    #   ((generic_environment
+    #     begin: (begin
+    #       name: (curly_group_text
+    #         text: (text) @_name))) @injection.content
+    #     (#eq? @_name "code")
+    #     (#offset! @injection.content 1 0 -1 0)
+    #     (#set! injection.language "agda")
+    #     (#set! injection.include-children))
+    # '';
+
+    files = {
+      "ftplugin/agda.lua".keymaps =
+        let
+          m = key: cmd: desc: {
+            mode = "n";
+            inherit key;
+            action = "<cmd>${cmd}<CR>";
+            options = {
+              buffer = true;
+              silent = true;
+              inherit desc;
+            };
+          };
+        in
+        [
+          (m "<localleader>l" "CornelisLoad" "Load file")
+          (m "<localleader>r" "CornelisRefine" "Refine goal")
+          (m "<localleader>d" "CornelisMakeCase" "Case split")
+          (m "<localleader>," "CornelisTypeContext" "Goal type & context")
+          (m "<localleader>." "CornelisTypeContextInfer" "Goal, context & inferred")
+          (m "<localleader>n" "CornelisSolve" "Solve constraints")
+          (m "<localleader>a" "CornelisAuto" "Auto")
+          (m "<localleader>e" "CornelisElaborate" "Elaborate & give")
+          (m "<localleader>N" "CornelisNormalize" "Normalize")
+          (m "<localleader>w" "CornelisWhyInScope" "Why in scope")
+          (m "gd" "CornelisGoToDefinition" "Go to definition")
+          (m "gp" "CornelisPrevGoal" "Previous goal")
+          (m "gn" "CornelisNextGoal" "Next goal")
+          (m "<C-A>" "CornelisInc" "Increment")
+          (m "<C-X>" "CornelisDec" "Decrement")
+        ];
+      "after/ftplugin/gitcommit.lua" = {
+        localOpts = {
+          textwidth = 72;
+          colorcolumn = "51,73";
+          spell = true;
+        };
+        extraConfigLua = ''
+          vim.opt_local.formatoptions:append({ "t", "n" })
         '';
-      }
-    ];
+      };
+
+      "after/ftplugin/java.lua" = {
+        keymaps =
+          let
+            m = mode: key: action: desc: {
+              inherit mode key;
+              action.__raw = action;
+              options = {
+                buffer = true;
+                inherit desc;
+              };
+            };
+          in
+          [
+            (m "n" "<leader>jo" "require('jdtls').organize_imports" "Java: organize imports")
+            (m "n" "<leader>jv" "require('jdtls').extract_variable" "Java: extract variable")
+            (m "v" "<leader>jv" "function() require('jdtls').extract_variable(true) end"
+              "Java: extract variable"
+            )
+            (m "n" "<leader>jc" "require('jdtls').extract_constant" "Java: extract constant")
+            (m "v" "<leader>jc" "function() require('jdtls').extract_constant(true) end"
+              "Java: extract constant"
+            )
+            (m "v" "<leader>jm" "function() require('jdtls').extract_method(true) end" "Java: extract method")
+          ];
+      };
+    };
 
     colorschemes.catppuccin = {
       enable = true;
@@ -297,6 +343,12 @@
         texliveMedium
       ];
 
+    extraPlugins = [ pkgs.vimPlugins.vim-textobj-user ];
+
+    dependencies = {
+      cornelis.package = cornelisPkgs.cornelis;
+    };
+
     plugins = {
       barbar = {
         enable = true;
@@ -356,6 +408,15 @@
             timeout_ms = 1000;
             lsp_fallback = true;
           };
+        };
+      };
+
+      cornelis = {
+        enable = true;
+        package = cornelisPkgs.cornelis-vim;
+        settings = {
+          use_global_binary = 1;
+          split_location = "bottom";
         };
       };
 
@@ -510,6 +571,22 @@
         };
       };
 
+      which-key = {
+        enable = true;
+        settings = {
+          triggers = [
+            {
+              __unkeyed-1 = "<auto>";
+              mode = "nxso";
+            }
+            {
+              __unkeyed-1 = "<localleader>";
+              mode = "i";
+            }
+          ];
+        };
+      };
+
       comment.enable = true;
       gitsigns.enable = true;
       lspconfig.enable = true;
@@ -517,7 +594,6 @@
       markdown-preview.enable = true;
       nvim-autopairs.enable = true;
       tmux-navigator.enable = true;
-      which-key.enable = true;
       web-devicons.enable = true;
     };
 
