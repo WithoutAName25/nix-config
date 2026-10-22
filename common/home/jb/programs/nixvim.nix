@@ -67,22 +67,22 @@ in
     filetype = {
       extension = {
         agda = "agda";
-        # lagda = "tex";
       };
     };
 
-    # extraFiles."after/queries/latex/injections.scm".text = ''
-    #   ;; extends
-    #
-    #   ((generic_environment
-    #     begin: (begin
-    #       name: (curly_group_text
-    #         text: (text) @_name))) @injection.content
-    #     (#eq? @_name "code")
-    #     (#offset! @injection.content 1 0 -1 0)
-    #     (#set! injection.language "agda")
-    #     (#set! injection.include-children))
-    # '';
+    autoCmd = [
+      {
+        event = [
+          "BufWritePost"
+        ];
+        pattern = [
+          "*.agda"
+          "*.lagda"
+        ];
+        command = "CornelisLoad";
+
+      }
+    ];
 
     files = {
       "ftplugin/agda.lua".keymaps =
@@ -415,6 +415,7 @@ in
         enable = true;
         package = cornelisPkgs.cornelis-vim;
         settings = {
+          agda_prefix = "\\";
           use_global_binary = 1;
           split_location = "bottom";
         };
@@ -599,6 +600,7 @@ in
 
     globals = {
       mapleader = " ";
+      maplocalleader = " l";
       markdown_recommended_style = 0;
     };
 
