@@ -80,7 +80,17 @@ in
           "*.lagda"
         ];
         command = "CornelisLoad";
-
+      }
+      {
+        event = "FileType";
+        pattern = "agda";
+        callback.__raw = ''
+          function(ev)
+            vim.schedule(function()
+              pcall(vim.keymap.del, "i", "\\", { buffer = ev.buf })
+            end)
+          end
+        '';
       }
     ];
 
@@ -100,20 +110,27 @@ in
         in
         [
           (m "<localleader>l" "CornelisLoad" "Load file")
-          (m "<localleader>r" "CornelisRefine" "Refine goal")
-          (m "<localleader>d" "CornelisMakeCase" "Case split")
-          (m "<localleader>," "CornelisTypeContext" "Goal type & context")
-          (m "<localleader>." "CornelisTypeContextInfer" "Goal, context & inferred")
-          (m "<localleader>n" "CornelisSolve" "Solve constraints")
-          (m "<localleader>a" "CornelisAuto" "Auto")
-          (m "<localleader>e" "CornelisElaborate" "Elaborate & give")
-          (m "<localleader>N" "CornelisNormalize" "Normalize")
-          (m "<localleader>w" "CornelisWhyInScope" "Why in scope")
+          (m "<localleader>?" "CornelisLoad" "Show all goals")
+          (m "<localleader>xr" "CornelisRestart" "Restart agda")
+          (m "<localleader>xa" "CornelisAbort" "Abort running command")
+          (m "<localleader>s" "CornelisSolve" "Solve constraints")
           (m "gd" "CornelisGoToDefinition" "Go to definition")
-          (m "gp" "CornelisPrevGoal" "Previous goal")
-          (m "gn" "CornelisNextGoal" "Next goal")
+          (m "<localleader>b" "CornelisPrevGoal" "Previous goal (backwards)")
+          (m "<localleader>f" "CornelisNextGoal" "Next goal (forward)")
+          (m "<localleader>g" "CornelisQuestionToMeta" "Question to meta")
           (m "<C-A>" "CornelisInc" "Increment")
           (m "<C-X>" "CornelisDec" "Decrement")
+          (m "<localleader>xx" "CornelisCloseInfoWindows" "Close all info windows")
+          (m "<localleader> " "CornelisGive" "Goal: give")
+          (m "<localleader>r" "CornelisRefine" "Goal: refine")
+          (m "<localleader>m" "CornelisElaborate" "Goal: elaborate and give")
+          (m "<localleader>a" "CornelisAuto" "Goal: auto")
+          (m "<localleader>c" "CornelisMakeCase" "Goal: case split")
+          (m "<localleader>," "CornelisTypeContext" "Goal: show type & context")
+          (m "<localleader>d" "CornelisTypeInfer" "Goal: show inferred")
+          (m "<localleader>." "CornelisTypeContextInfer" "Goal: show type, context & inferred")
+          (m "<localleader>n" "CornelisNormalize" "Goal: normalize")
+          (m "<localleader>w" "CornelisWhyInScope" "Goal: why in scope")
         ];
       "after/ftplugin/gitcommit.lua" = {
         localOpts = {
@@ -578,11 +595,7 @@ in
           triggers = [
             {
               __unkeyed-1 = "<auto>";
-              mode = "nxso";
-            }
-            {
-              __unkeyed-1 = "<localleader>";
-              mode = "i";
+              mode = "nixso";
             }
           ];
         };
@@ -593,6 +606,7 @@ in
       lspconfig.enable = true;
       luasnip.enable = true;
       markdown-preview.enable = true;
+      mini-icons.enable = true;
       nvim-autopairs.enable = true;
       tmux-navigator.enable = true;
       web-devicons.enable = true;
