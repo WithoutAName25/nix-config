@@ -23,6 +23,7 @@
           xkb = {
             layout = "de";
             variant = "nodeadkeys";
+            options = "compose:menu";
           };
           numlock = [ ];
         };
