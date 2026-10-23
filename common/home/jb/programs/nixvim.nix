@@ -193,7 +193,7 @@ in
               "--completion-style=detailed"
               "--header-insertion=never"
               "--function-arg-placeholders=true"
-              "--query-driver=/home/jb/.platformio/packages/toolchain-*/bin/arm-none-eabi-gcc,/home/jb/.platformio/packages/toolchain-*/bin/arm-none-eabi-g++,${pkgs.gcc-arm-embedded}/bin/arm-none-eabi-gcc,${pkgs.gcc-arm-embedded}/bin/arm-none-eabi-g++,${pkgs.gcc}/bin/gcc,${pkgs.gcc}/bin/g++,${pkgs.clang}/bin/clang,${pkgs.clang}/bin/clang++"
+              "--query-driver=/nix/store/*/bin/arm-none-eabi-*,/home/jb/.platformio/packages/toolchain-*/bin/arm-none-eabi-*,/nix/store/*/bin/gcc,/nix/store/*/bin/g++,/nix/store/*/bin/clang,/nix/store/*/bin/clang++"
             ];
           };
         };
