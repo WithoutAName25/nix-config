@@ -25,9 +25,6 @@
         "sdhci_pci"
       ];
       kernelModules = [ ];
-      systemd = {
-        enable = true;
-      };
       luks.devices = {
         "nixroot".device = "/dev/disk/by-partlabel/nixroot";
         "nixswap" = {
