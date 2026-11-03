@@ -241,6 +241,7 @@ in
         };
         ltex = {
           enable = true;
+          package = pkgs.ltex-ls-plus;
         };
         lua_ls = {
           enable = true;
