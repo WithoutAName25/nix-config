@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   virtualisation = {
@@ -13,6 +13,7 @@
 
       qemu = {
         runAsRoot = false;
+        vhostUserPackages = with pkgs; [ virtiofsd ];
       };
     };
 

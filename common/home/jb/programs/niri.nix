@@ -314,31 +314,39 @@
         };
         "Mod+O" = {
           _props.repeat = false;
+          _props.allow-inhibiting = false;
           toggle-overview = [ ];
         };
         "Mod+P" = {
           _props.repeat = false;
+          _props.allow-inhibiting = false;
           screenshot = [ ];
         };
         "Mod+Shift+P" = {
           _props.repeat = false;
+          _props.allow-inhibiting = false;
           screenshot-window = [ ];
         };
         "Mod+Ctrl+P" = {
           _props.repeat = false;
+          _props.allow-inhibiting = false;
           screenshot-screen = [ ];
         };
 
         "Mod+H" = {
+          _props.allow-inhibiting = false;
           focus-column-left = [ ];
         };
         "Mod+J" = {
+          _props.allow-inhibiting = false;
           focus-window-down = [ ];
         };
         "Mod+K" = {
+          _props.allow-inhibiting = false;
           focus-window-up = [ ];
         };
         "Mod+L" = {
+          _props.allow-inhibiting = false;
           focus-column-right = [ ];
         };
 
@@ -356,15 +364,19 @@
         };
 
         "Mod+Shift+H" = {
+          _props.allow-inhibiting = false;
           move-column-left = [ ];
         };
         "Mod+Shift+J" = {
+          _props.allow-inhibiting = false;
           move-window-down = [ ];
         };
         "Mod+Shift+K" = {
+          _props.allow-inhibiting = false;
           move-window-up = [ ];
         };
         "Mod+Shift+L" = {
+          _props.allow-inhibiting = false;
           move-column-right = [ ];
         };
 
@@ -395,15 +407,19 @@
         };
 
         "Mod+N" = {
+          _props.allow-inhibiting = false;
           focus-monitor-left = [ ];
         };
         "Mod+M" = {
+          _props.allow-inhibiting = false;
           focus-workspace-down = [ ];
         };
         "Mod+Comma" = {
+          _props.allow-inhibiting = false;
           focus-workspace-up = [ ];
         };
         "Mod+Period" = {
+          _props.allow-inhibiting = false;
           focus-monitor-right = [ ];
         };
 
@@ -421,15 +437,19 @@
         };
 
         "Mod+Ctrl+N" = {
+          _props.allow-inhibiting = false;
           move-workspace-to-monitor-left = [ ];
         };
         "Mod+Ctrl+M" = {
+          _props.allow-inhibiting = false;
           move-workspace-down = [ ];
         };
         "Mod+Ctrl+Comma" = {
+          _props.allow-inhibiting = false;
           move-workspace-up = [ ];
         };
         "Mod+Ctrl+Period" = {
+          _props.allow-inhibiting = false;
           move-workspace-to-monitor-right = [ ];
         };
 

@@ -13,6 +13,8 @@
       filterForward = true;
       extraForwardRules = ''
         iifname "virbr0" oifname "enp42s0" accept comment "libvirt VM internet"
+        iifname "virbr0" oifname "enp44s0" accept comment "libvirt VM internet"
+        iifname "virbr0" oifname "wlp0s20f3" accept comment "libvirt VM internet"
         iifname "virbr0" oifname "virbr0" accept comment "libvirt VM cross traffic"
         iifname "docker0" oifname "enp42s0" accept comment "docker internet"
         iifname "docker0" oifname "docker0" accept comment "docker cross traffic"

@@ -20,6 +20,7 @@
     qimgv
     thunderbird
     traceroute
+    virt-viewer
     webcord
     wl-mirror
     yubikey-manager

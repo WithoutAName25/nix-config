@@ -53,6 +53,7 @@
       "Pictures"
       "Projects"
       "Videos"
+      "VMs"
     ];
     files = [
       ".claude.json"
